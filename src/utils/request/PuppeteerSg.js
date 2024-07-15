@@ -1,10 +1,10 @@
-import puppeteer from 'puppeteer'
+import puppeteer from "puppeteer";
 
 class PuppeteerSg {
   constructor() {
     if (!PuppeteerSg.instance) {
       PuppeteerSg.instance = this;
-      process.on('exit', () => {
+      process.on("exit", () => {
         this.close();
       });
     }
@@ -16,25 +16,27 @@ class PuppeteerSg {
    */
   async launch() {
     this.browser = await puppeteer.launch({
-      headless: "new",
+      headless: false,
+      args: ["--no-sandbox"],
+      // headless: "new",
       defaultViewport: null,
     });
   }
 
   /**
    * New a page
-   * @param {string} url 
-   * @returns 
+   * @param {string} url
+   * @returns
    */
   async getPage(url) {
     if (!this.browser) {
-      await this.launch()
+      await this.launch();
     }
-    let page = await this.browser.newPage()
+    let page = await this.browser.newPage();
     await page.goto(url, {
       waitUntil: "load",
-    })
-    return page
+    });
+    return page;
   }
 
   /**
@@ -48,4 +50,4 @@ class PuppeteerSg {
   }
 }
 
-export const puppeteerSg = new PuppeteerSg()
+export const puppeteerSg = new PuppeteerSg();
