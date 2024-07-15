@@ -94,7 +94,7 @@ npm start "https://www.everand.com/podcast-show/414106971/TED-Talks-Daily"
 npm start "https://www.everand.com/listen/podcast/731670963"
 ```
 
-## Usage (CLI)
+## Usage (API)
 
 ```console
 npm run server
@@ -102,8 +102,8 @@ npm run server
 
 #### Example curl: https://www.scribd.com/document/546758785/Rancangan-Akhir-RPJMD-Ketapang
 
-``console
-http://host:port/api/v1/skibidi?url=https://www.scribd.com/document/546758785/Rancangan-Akhir-RPJMD-Ketapang&flag=i
+```console
+curl http://host:port/api/v1/skibidi?url=https://www.scribd.com/document/546758785/Rancangan-Akhir-RPJMD-Ketapang&flag=i
 
 ```
 
@@ -124,4 +124,7 @@ http://host:port/api/v1/skibidi?url=https://www.scribd.com/document/546758785/Ra
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md)
+
+```
+
 ```
